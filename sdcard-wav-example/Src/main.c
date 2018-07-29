@@ -182,7 +182,7 @@ int playWavFile(const char* fname) {
     if(hal_res != HAL_OK) {
         UART_Printf("I2S - HAL_I2S_Transmit failed, hal_res = %d!\r\n", hal_res);
         f_close(&file);
-        return -11;
+        return -12;
     }
 
     while(dataSize >= sizeof(signal_buff1)) {
@@ -196,7 +196,7 @@ int playWavFile(const char* fname) {
         if(res != FR_OK) {
             UART_Printf("f_read() failed, res = %d\r\n", res);
             f_close(&file);
-            return -10;
+            return -13;
         }
 
         dataSize -= sizeof(signal_buff1);
@@ -207,7 +207,7 @@ int playWavFile(const char* fname) {
     res = f_close(&file);
     if(res != FR_OK) {
         UART_Printf("f_close() failed, res = %d\r\n", res);
-        return -12;
+        return -14;
     }
 
     return 0;
