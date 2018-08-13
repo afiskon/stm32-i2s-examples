@@ -157,7 +157,7 @@ int playWavFile(const char* fname) {
         return -9;
     }
 
-    res = f_read(&file, (uint8_t*)signal_buff1, sizeof(signal_buff2), &bytesRead);
+    res = f_read(&file, (uint8_t*)signal_buff1, sizeof(signal_buff1), &bytesRead);
     if(res != FR_OK) {
         UART_Printf("f_read() failed, res = %d\r\n", res);
         f_close(&file);
